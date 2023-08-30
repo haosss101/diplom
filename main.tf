@@ -80,9 +80,9 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
     instance_types = [local.instance]  
-
-    disk_size = 8
-    use_custom_launch_template = true    
+    use_custom_launch_template = false
+    disk_size = 8       
+    cluster_name = local.name
 
     attach_cluster_primary_security_group = true
 
@@ -130,6 +130,6 @@ module "ecr" {
   })
 
   tags = {
-    ExtraTag = local.name
+    Name = local.name
   }
 }
