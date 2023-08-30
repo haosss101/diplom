@@ -80,9 +80,10 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
     instance_types = [local.instance]   
+    name = "sh"
     
     use_custom_launch_template = false
-    disk_size = 8
+    #disk_size = 8
 
     attach_cluster_primary_security_group = true
   }
@@ -92,8 +93,8 @@ module "eks" {
       min_size     = 2
       max_size     = 4
       desired_size = 2
-      disk_size = 8
-      name = local.name
+      #disk_size = 8
+      
 
       instance_types = [local.instance]
       capacity_type  = "ON_DEMAND"
