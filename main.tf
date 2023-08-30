@@ -93,6 +93,7 @@ module "eks" {
       max_size     = 4
       desired_size = 2
       disk_size = 8
+      name = local.name
 
       instance_types = [local.instance]
       capacity_type  = "ON_DEMAND"
