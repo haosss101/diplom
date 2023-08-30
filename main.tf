@@ -80,10 +80,10 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
     instance_types = [local.instance]   
-    #name = "sh"
-    
-    #use_custom_launch_template = false
+    name = "shpakovsky_node"
     disk_size = 8
+    use_custom_launch_template = false
+    
 
     attach_cluster_primary_security_group = true
   }
