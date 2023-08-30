@@ -79,15 +79,13 @@ module "eks" {
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
-    instance_types = [local.instance]   
+    instance_types = [local.instance]  
+
     disk_size = 8
-    use_custom_launch_template = false    
+    use_custom_launch_template = true    
 
     attach_cluster_primary_security_group = true
 
-    tags = {
-        Name = local.name
-      }
   }
 
   eks_managed_node_groups = {
