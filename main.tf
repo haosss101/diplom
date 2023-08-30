@@ -81,8 +81,7 @@ module "eks" {
     ami_type       = "AL2_x86_64"
     instance_types = [local.instance]  
     use_custom_launch_template = false
-    disk_size = 8       
-    cluster_name = local.name
+    disk_size = 8
 
     attach_cluster_primary_security_group = true
 
