@@ -84,6 +84,10 @@ module "eks" {
     use_custom_launch_template = false    
 
     attach_cluster_primary_security_group = true
+
+    tags = {
+        Name = local.name
+      }
   }
 
   eks_managed_node_groups = {
@@ -96,8 +100,7 @@ module "eks" {
       capacity_type  = "ON_DEMAND"
       
       tags = {
-        ExtraTag = local.name
-        Name = "shpakovsky_node"
+        Name = local.name
       }
     }
   }
