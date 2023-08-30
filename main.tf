@@ -82,8 +82,7 @@ module "eks" {
     instance_types = [local.instance]   
     #name = "shpakovsky_node"
     disk_size = 8
-    use_custom_launch_template = false
-    labels = "shhhhh"
+    use_custom_launch_template = false    
 
     attach_cluster_primary_security_group = true
   }
@@ -96,7 +95,6 @@ module "eks" {
       #disk_size = 8
       name = "shpakovsky_node"
       
-      labels = "shh"
       instance_types = [local.instance]
       capacity_type  = "ON_DEMAND"
       
