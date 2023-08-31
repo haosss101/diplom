@@ -16,7 +16,7 @@ pipeline {
                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     
-                sh 'sudo terraform init'
+                sh 'sudo terraform init -backend-config="access_key=AWS_ACCESS_KEY_ID" -backend-config="secret_key=AWS_SECRET_ACCESS_KEY"'
                     
             }
                    
