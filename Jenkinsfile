@@ -10,10 +10,19 @@ pipeline {
 
         stage('Terraform init with credentials for S3') {
             steps {
-                sh 'sudo terraform init -backend-config="access_key=AKIARNGVWZTHDK5ZJGN2" -backend-config="secret_key=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"'
+                withCredentials([[
+                $class: 'AmazonWebServicesCredentialsBinding',
+                credentialsId: '101',
+                accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    
+                sh 'sudo terraform init'
             }
+                   
         }
-
+                 
+    }
+        
         stage('Disable KMS') {
             steps {
                 sh 'sudo cp ~/main.tf ~/workspace/diplom/.terraform/modules/eks'
