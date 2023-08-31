@@ -96,6 +96,8 @@ module "eks" {
       instance_types = [local.instance]
       capacity_type  = "ON_DEMAND"
       
+      cluster_encryption_config = {}
+
       tags = {
         Name = local.name
       }
