@@ -12,7 +12,7 @@ terraform {
 }
 
 locals {
-  name = "${var.name}"
+  name = "${var.name}" 
   instance = "${var.instance}"
   cidr = "${var.cidr}"  
   azs = ["${var.azs1}", "${var.azs2}"]
