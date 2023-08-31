@@ -11,7 +11,7 @@ terraform {
   }
 }
 
-locals {
+locals { 
   name = "${var.name}"
   instance = "${var.instance}"
   cidr = "${var.cidr}"  
