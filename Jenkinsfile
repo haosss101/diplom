@@ -10,12 +10,12 @@ pipeline {
 
         stage('Terraform init with credentials for S3') {
             steps {
-               
+                withAWS(credentials: 'AWS_creds', region: 'us-east-1'){ //AWS Plugin
+                   sh 'sudo terraform init
+                }
                     
-                sh 'sudo terraform init -backend-config="access_key=AKIARNGVWZTHDK5ZJGN2" -backend-config="secret_key=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"'
-                    
-            
-                   
+                #sh 'sudo terraform init -backend-config="access_key=AKIARNGVWZTHDK5ZJGN2" -backend-config="secret_key=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"'                   
+                               
         }
                  
     }
